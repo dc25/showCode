@@ -15,6 +15,10 @@ function getOnlineText(titleId:string, contentId:string)
   let el = document.getElementById(contentId);
   fetch(url)
     .then(resp => resp.text())
-    .then(resp => el.innerHTML = PR.prettyPrintOne(resp.replace(/</g,"&lt").replace(/>/g,"&gt")))
+    .then(resp => el.innerHTML 
+                      = PR.prettyPrintOne(
+                            resp.replace(/&/g,"&amp;")
+                                .replace(/</g,"&lt")
+                                .replace(/>/g,"&gt")))
     .catch(err => el.innerText = err);
 }
