@@ -16,5 +16,5 @@ function getOnlineText(titleId:string, contentId:string)
   fetch(url)
     .then(resp => resp.text())
     .then(resp => el.innerHTML = PR.prettyPrintOne(resp.replace(/</g,"&lt").replace(/>/g,"&gt")))
-    .catch(err => { el.innerText = err; });
+    .catch(err => el.innerText = err);
 }
