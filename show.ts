@@ -15,6 +15,10 @@ function getOnlineText(contentId:string)
                       = PR.prettyPrintOne(
                             resp.replace(/&/g,"&amp;")
                                 .replace(/</g,"&lt")
-                                .replace(/>/g,"&gt")))
+                                .replace(/>/g,"&gt")
+                          , null // let prettyPrintOne figure out the language
+                          , true // print line numbers.
+                          )
+         )
     .catch(err => el.innerText = err);
 }
