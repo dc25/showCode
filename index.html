@@ -1,11 +1,20 @@
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <script src="show.js"></script>
 <script>
+
 function showInContent(t) {
     document.getElementById('Content').innerHTML = t;
 }
+
+function showOnlineText() {
+  let params = new URLSearchParams(window.location.search);  
+
+  let encodedUrl = params.get("codeURL");  
+  let url = decodeURIComponent(encodedUrl);
+  getOnlineText(url, showInContent);
+}
 </script>
 
-<body onload="getOnlineText(showInContent)">
+<body onload="showOnlineText()">
   <pre id="Content" ></pre>
 </body>
