@@ -1,6 +1,11 @@
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <script src="show.js"></script>
+<script>
+function showInContent(t) {
+    document.getElementById('Content').innerHTML = t;
+}
+</script>
 
-<body onload="getOnlineText('Content')">
+<body onload="getOnlineText(showInContent)">
   <pre id="Content" ></pre>
 </body>
