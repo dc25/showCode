@@ -1,11 +1,11 @@
 declare var PR:any; 
 
-function getOnlineText(search: string, displayCB: (st: string) => void)
+function getOnlineText(search: string, displayCB: (st: string) => void) : void
 {
   let params = new URLSearchParams(search);  
   let encodedUrl = params.get("codeURL");  
-  if (!encodedUrl) {
-     displayCB("Missing argument 'codeURL' in query params: \'params\'.");
+  if (encodedUrl === null) {
+     displayCB("Missing argument 'codeURL' in query params: \'" + search + "\'.");
      return;
   }
 
