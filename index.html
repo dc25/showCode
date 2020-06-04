@@ -2,10 +2,20 @@
 <script src="show.js"></script>
 <script>
 function showInContent(t) {
-    document.getElementById('Content').innerHTML = t;
+    let contentElement = document.getElementById('Content');
+    if (contentElement === null) {
+        console.log("contentElement is null");
+    } else {
+        contentElement.innerHTML = t;
+    }
 }
 
-window.onload=getOnlineText(window.location.search, showInContent);
+// Switched from using window.onLoad to DOMContentLoaded 
+// because getOnlineText was being called too soon. 
+window.addEventListener('DOMContentLoaded', (event) => {
+    getOnlineText(window.location.search, showInContent);
+});
+
 </script>
 
 <body>
