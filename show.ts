@@ -1,6 +1,6 @@
 declare var PR:any; 
 
-export function getOnlineText(search: string, displayCB: (st: string) => void)
+function getOnlineText(search: string, displayCB: (st: string) => void)
 {
   let params = new URLSearchParams(search);  
   let encodedUrl = params.get("codeURL");  
