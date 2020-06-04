@@ -6,14 +6,7 @@ function showInContent(t) {
     document.getElementById('Content').innerHTML = t;
 }
 
-function showOnlineText() {
-  let params = new URLSearchParams(window.location.search);  
-  let encodedUrl = params.get("codeURL");  
-  let url = decodeURIComponent(encodedUrl);
-  getOnlineText(url, showInContent);
-}
-
-window.onload=showOnlineText;
+window.onload=getOnlineText(window.location.search, showInContent);
 </script>
 
 <body>
